@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>REBORN</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+  body { visibility: hidden; opacity: 0; }
+</style>
+
+<!-- КРИТИЧЕСКИЙ СКРИПТ -->
+<script>
+const translations = {
+  ru: {
+    reborn: "REBORN",
+    tagline: "Live Band • DJ Set • Light Show",
+    bookBtn: "Забронировать",
+    aboutTitle: "О нас",
+    aboutText: "REBORN — это коллектив, который создаёт неповторимые впечатления через живую музыку, DJ-сеты и профессиональное световое шоу. Мы выступаем на свадьбах, в клубах, на фестивалях и приватных мероприятиях.",
+    liveShows: "Живые выступления",
+    lightStage: "Свет и сцена",
+    services: "Что мы делаем",
+    contact: "Контакты / Бронирование",
+    email: "Email:",
+    instagram: "Instagram:",
+    sendRequest: "Отправить запрос"
+  },
+  lv: {
+    reborn: "REBORN",
+    tagline: "Live Band • DJ Set • Light Show",
+    bookBtn: "Rezervēt",
+    aboutTitle: "Par mums",
+    aboutText: "Mēs esam REBORN — radošs kolektīvs, kas apvieno tiešo izpildi, DJ setus un profesionālas gaismas šovus. Mēs uzstāmies kāzās, klubos, festivālos un privātajos pasākumos.",
+    liveShows: "Tiešie koncerti",
+    lightStage: "Gaisma un skatuve",
+    services: "Kas mēs darām",
+    contact: "Kontakti / Rezervēšana",
+    email: "E-pasts:",
+    instagram: "Instagram:",
+    sendRequest: "Nosūtīt pieprasījumu"
+  }
+};
+
+const savedLang = localStorage.getItem('language') || 'ru';
+
+function showPage() {
+  document.body.style.visibility = 'visible';
+  document.body.style.opacity = '1';
+}
+
+function updatePageText(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (t[key]) {
+      element.textContent = t[key];
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  updatePageText(savedLang);
+  
+  // Обновить активную кнопку языка
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.includes(savedLang === 'ru' ? 'РУ' : 'LV')) {
+      btn.classList.add('active');
+    }
+  });
+  
+  showPage();
+});
+
+function changeLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  localStorage.setItem('language', lang);
+  updatePageText(lang);
+}
+</script>
+</head>
+<body>
+<!-- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ -->
+<div class="language-switcher">
+  <button onclick="changeLanguage('ru')" class="lang-btn active">РУ</button>
+  <button onclick="changeLanguage('lv')" class="lang-btn">LV</button>
+</div>
+
+<!-- НАВИГАЦИЯ -->
+<nav class="navbar">
+  <a href="#about">О нас</a>
+  <a href="#videos">Выступления</a>
+  <a href="#gallery">Галерея</a>
+  <a href="#contact">Контакты</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1 data-i18n="reborn">REBORN</h1>
+    <p data-i18n="tagline">Live Band • DJ Set • Light Show</p>
+    <a href="#contact" class="btn" data-i18n="bookBtn">Book Us</a>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <p data-i18n="aboutText">
+    REBORN — это коллектив, который создаёт неповторимые впечатления 
+через живую музыку, DJ-сеты и профессиональное световое шоу. 
+Мы выступаем на свадьбах, в клубах, на фестивалях и приватных мероприятиях.
+  </p>
+  
+  <!-- БОЛЬШОЕ ВИДЕО ЖИВОГО ВЫСТУПЛЕНИЯ -->
+  <div class="featured-video">
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe 
+        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1859812211392478%2F&show_text=false"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="videos" id="videos">
+  <h2 data-i18n="liveShows">Живые выступления</h2>
+  <div class="video-grid">
+    <!-- facebook vid 1 -->
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fandrej.kralikas%2Fvideos%2F1217451355946622%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    </div>
+
+    <!-- facebook vid 2 -->
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fandrej.kralikas%2Fvideos%2F1227210662049786%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    </div>
+
+    <!-- facebook vid 3 -->
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fandrej.kralikas%2Fvideos%2F739130528314438%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    </div>
+    
+    <!-- facebook vid 4 -->
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fandrej.kralikas%2Fvideos%2F2145853089088270%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <h2 data-i18n="lightStage">Light & Stage</h2>
+  <div class="images">
+    <img src="img/photo1.jpg" onclick="openModal(this)" />
+    <img src="img/photo2.jpg" onclick="openModal(this)" />
+    <img src="img/photo3.jpg" onclick="openModal(this)" />
+  </div>
+</section>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div id="imageModal" class="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    
+    <!-- КНОПКИ НАВИГАЦИИ -->
+    <button class="modal-btn prev-btn" onclick="changeImage(-1)">❮</button>
+    <img id="modalImage" src="" alt="">
+    <button class="modal-btn next-btn" onclick="changeImage(1)">❯</button>
+  </div>
+</div>
+
+<section id="contact" class="contact">
+  <h2 data-i18n="contact">Contact / Booking</h2>
+  <p><span data-i18n="email">Email:</span> yourmail@email.com</p>
+  <p><span data-i18n="instagram">Instagram:</span> @yourband</p>
+  <a class="btn" href="mailto:yourmail@email.com" data-i18n="sendRequest">Send Request</a>
+</section>
+
+<footer>
+  <div class="social">
+    <a href="https://instagram.com" target="_blank">📱 Instagram</a>
+    <a href="https://facebook.com" target="_blank">👍 Facebook</a>
+    <a href="https://youtube.com" target="_blank">▶️ YouTube</a>
+  </div>
+  <p>© 2026 REBORN</p>
+</footer>
+
+<!-- СКРИПТ ДЛЯ ЛАЙТБОКСА -->
+<script>
+let currentImageIndex = 0;
+let allImages = [];
+let mouseDownX = 0;
+let mouseUpX = 0;
+let hideButtonsTimeout;
+
+function openModal(imgElement) {
+  allImages = Array.from(document.querySelectorAll('.images img'));
+  currentImageIndex = allImages.indexOf(imgElement);
+  
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modalImg.src = imgElement.src;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  
+  showButtons();
+}
+
+function closeModal(event) {
+  const modal = document.getElementById('imageModal');
+  if (!event || event.target === modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    hideButtons();
+  }
+}
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+  
+  if (currentImageIndex >= allImages.length) {
+    currentImageIndex = 0;
+  } else if (currentImageIndex < 0) {
+    currentImageIndex = allImages.length - 1;
+  }
+  
+  const modalImg = document.getElementById('modalImage');
+  modalImg.src = allImages[currentImageIndex].src;
+}
+
+function showButtons() {
+  const buttons = document.querySelectorAll('.modal-btn');
+  buttons.forEach(btn => btn.classList.add('visible'));
+  
+  clearTimeout(hideButtonsTimeout);
+  hideButtonsTimeout = setTimeout(() => {
+    hideButtons();
+  }, 3000);
+}
+
+function hideButtons() {
+  const buttons = document.querySelectorAll('.modal-btn');
+  buttons.forEach(btn => btn.classList.remove('visible'));
+}
+
+document.addEventListener('mousemove', function(event) {
+  const modal = document.getElementById('imageModal');
+  if (modal.classList.contains('active')) {
+    showButtons();
+  }
+});
+
+document.addEventListener('mousedown', function(event) {
+  const modal = document.getElementById('imageModal');
+  if (modal.classList.contains('active')) {
+    mouseDownX = event.clientX;
+  }
+});
+
+document.addEventListener('mouseup', function(event) {
+  const modal = document.getElementById('imageModal');
+  if (modal.classList.contains('active')) {
+    mouseUpX = event.clientX;
+    handleSwipe();
+  }
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  
+  if (mouseDownX - mouseUpX > swipeThreshold) {
+    changeImage(1);
+  }
+  if (mouseUpX - mouseDownX > swipeThreshold) {
+    changeImage(-1);
+  }
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+  if (event.key === 'ArrowLeft') {
+    changeImage(-1);
+  }
+  if (event.key === 'ArrowRight') {
+    changeImage(1);
+  }
+});
+</script>
+</body>
+</html>
